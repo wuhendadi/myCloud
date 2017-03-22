@@ -1,0 +1,287 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>PopoCloud</title>
+        <!-- ////////////////////////////////// -->
+        <!-- //      Stylesheets Files       // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="stylesheet" href="/portal/css/style.css" />
+          
+        <!-- ////////////////////////////////// -->
+        <!-- //     Google Webfont Files     // -->
+        <!-- ////////////////////////////////// -->
+        
+        
+        <!-- ////////////////////////////////// -->
+        <!-- //        Favicon Files         // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="shortcut icon" href="/portal/pic" />
+        
+        <!-- ////////////////////////////////// -->
+        <!-- //      Javascript Files        // -->
+        <!-- ////////////////////////////////// -->
+        <script src="/portal/js/jquery.min.js"></script>
+
+        <script  type="text/javascript">
+
+        function closeWindow() { 
+            window.opener=null;
+            window.open('','_parent','');
+            window.close();
+            } 
+
+        function mydoc()
+        {
+            window.location.href="/documentpage";
+        }
+
+        function submitform()
+        {
+           $("#myform").submit();
+        }
+
+        function in_next_dir(dir)
+        {
+        window.location.href="/next_dir?nextdir="+dir;
+        }
+
+        function download()
+        {
+            var checks = $("input:checked");
+            var names = new Array();
+            if(!checks.length) 
+            {
+                alert("请选择要下载文件");
+                window.location.href="/";
+            }
+            else
+            {
+            checks.each(function(){
+            names.push($(this).attr('id'));
+            }
+            )
+                    window.location.href="/download_file?names="+names;
+            }
+        }
+
+
+        function rename()
+        {
+        var checks = $("input:checked");
+        if (checks.length > 1)
+            {
+                alert("重命名只能选择一个");
+            }
+        else if(checks.length == 0)
+            {
+                alert("请选择重命名文件");
+            }
+        else
+        {
+            old_name = checks.attr('id');
+            new_name = prompt("新名称");
+            window.location.href="/rename_file?name="+new_name+"&"+"old_name="+old_name;
+        }
+
+        }
+
+        function delelement()
+        {
+        var checks = $("input:checked");
+        var names = new Array();
+        if (!checks.length)
+        {
+            alert("请选择要删除的文件");
+            window.location.href="/";
+        }
+        else
+        {
+            checks.each(function(){
+            names.push($(this).attr('id'));
+            $(this).parent().parent().remove();
+    
+            window.location.href="/delete_file?names="+names;
+        })
+        }
+        }
+
+        function myapplication()
+        {
+            window.location.href="/application";
+        }
+
+        function setting()
+        {
+            window.location.href="/cloudset";
+        }
+
+        function back_page()
+        {
+            window.location.href="/back";
+        }
+
+        function create_file()
+        {
+            if($("#new_add_ele").length) 
+            {
+                ele_str='';
+                
+            }
+            else
+            {
+            ele_str = '<tr id="new_add_ele" style="height:20px;padding-left:30px;">'+'<td style="border-spacing:0px;height:20px;padding-left:10px;">'+
+                        '<input type="checkbox" name="docname" value="docvalue" style="margin-left:18px;"/>'+
+                        '</td>'+'<td><input id="new_ele"  type="text" name="docname" value="新建文件"/>'+
+                        '<a style= "padding-left:10px;" href= "javascript:add_element()">添加</a>'+
+                        '<a style= "padding-left:10px;" href="javascript:del_element()">删除</a>'+
+                        '</td></tr>';
+            }
+             $("tbody tr:first").before(ele_str);
+        }
+
+        function add_element()
+        {
+        window.location.href="/createfile?docname="+$("input[type=text]").val();
+        }
+
+        function del_element()
+        {
+            $("#new_add_ele").remove();
+        }
+
+
+        function selectAll(checkbox) {  
+             if($(checkbox).attr('checked'))
+             {
+             $('input[type=checkbox]').attr('checked', true);  
+             }
+             else
+             {
+             $('input[type=checkbox]').attr('checked', false);  
+             }
+                 }  
+
+        </script>
+
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body style="overflow:-Scroll;overflow-y:hidden">
+        <div id = "the_bar">
+            <a class= "ela_cloud"><img src="/portal/pic/yilai1.png"/></a>
+            <a class= "ela_exit" href="javascript:closeWindow();">
+                <font style="font-size:14px;font-family:黑体;color:#ffffff;">
+                        退出
+                </font>
+            </a>
+        </div>
+
+        <div id="main_doc">
+            <div id="left_bar">
+                <a onclick="mydoc()">
+                    <img style="padding-top:22px"
+                    src="/portal/pic/doc_second.png" onmouseover="src='/portal/pic/doc_one.png'" onmouseout="src ='/portal/pic/doc_second.png'"/>
+                </a>
+                <a onclick="myapplication()">
+                    <img style="padding-top:28px" src="/portal/pic/app_second.png" onmouseover="src='/portal/pic/app_one.png'" onmouseout="src ='/portal/pic/app_second.png'"/>
+                </a>
+                <a onclick="setting()">
+                    <img style="padding-top:28px" src="/portal/pic/cloudset_second.png" onmouseover="src='/portal/pic/cloudset_one.png'" onmouseout="src ='/portal/pic/cloudset_second.png'"/>
+                </a>
+            </div>
+
+            <div id="right_bar">
+                    <div id = "disk_list">
+                    {% for disk in names %}
+                        <a href="/index?disk={{disk}}" class="my_disk">
+                        <div class="disk_icon">
+                            <div>
+                            <img style="padding-top:9px;padding-left:33px;" src="/portal/pic/disk_one.png"/>
+                            </div>
+                            <font style="font-size:14px;padding-left:20px;font-family:黑体;">{{disk}}</font>
+                        </div>
+                        </a>
+                    {% endfor %}
+                    </div>
+                <div id = "operate_list">
+                    <a class="back" href="javascript:back_page();">
+                        <img src="/portal/pic/back.png" onmouseover="src ='/portal/pic/backover.png'" onmouseout="src ='/portal/pic/back.png'"/>
+                    </a>
+
+                    <a class="creat_new_folder" href="javascript:create_file();">
+                             <img src="/portal/pic/create.png" onmouseover="src='/portal/pic/createover.png'" onmouseout="src='/portal/pic/create.png'"/>
+                    </a>
+
+                    <a class="upload_doc" id="uploadBtn">
+                            <img src="/portal/pic/upload.png" onmouseover="src='/portal/pic/uploadover.png'" onmouseout="src='/portal/pic/upload.png'" />
+                            <form id="myform" action="/post_file" method="post" enctype="multipart/form-data" >
+                                <input id="input_form" style= "position:relative;top:-30px;opacity:0;height:30px;width:101px;" onchange="javascript:submitform()" type="file" name="theFile" />
+                            </form>
+                    </a>
+
+                    <a class="download_doc" href="javascript:download()">
+                             <img src="/portal/pic/download.png" onmouseover="src='/portal/pic/downloadover.png'" onmouseout="src='/portal/pic/download.png'"/>
+                    </a>
+
+                    <a class="rename" href="javascript:rename();">
+                             <img src="/portal/pic/rename.png" onmouseover="src='/portal/pic/renameover.png'" onmouseout="src='/portal/pic/rename.png'"/>
+                    </a>
+
+                    <a class="del_doc" href="javascript:delelement();">
+                             <img src="/portal/pic/del.png" onmouseover="src='/portal/pic/delover.png'" onmouseout="src='/portal/pic/del.png'"/>
+                    </a>
+                </div>
+
+                <div id="descript_operate">
+                        <li id="descript_first"><font style="font-size:12px;font-family:黑体;color:#747474;">全部文件</font></li>
+                        <li id="descript_second"><font
+                            style="font-size:12px;font-family:黑体;color:#747474;">已全部加载,第1页</font></li>
+                </div>
+
+                  <div id= "table_name">
+                        <table  style="width:100%;border-spacing:0px;">
+                            <thead id="t_head">
+                                    <tr style="height:41px;">
+                                        <td style="width:30px;"><input type="checkbox"
+                                            name="docname" value="docvalue" onclick="selectAll(this);"
+                                            style="margin-left:30px;" /></td>
+                                        <th class="doc_name">
+                                            <font style="font-size:14px;font-family:黑体;color:#727272;">文件</font>
+                                        </th>
+                                        <th class="doc_size">
+                                            <font style="font-size:14px;font-family:黑体;color:#727272;">大小</font>
+                                        </th>
+                                        <th class="doc_time">
+                                            <font style="font-size:14px;font-family:黑体;color:#727272;">修改日期</font>
+                                        </th>
+                                    </tr>
+                            </thead>
+
+                            <tbody id = "tbody_id" >
+                                {% for filename in list_files if filename.get("path") != "zip_file.zip" %}
+                                <tr style="height:40px;">
+                                    <td style="border-spacing:0px;"><input type="checkbox" id="{{filename.get('path')}}" name=2 value="docvalue" 
+                                        style="margin-left:26px;" /></td>
+                                    <td  class="doc_name" ><img src="/portal/pic/docimg.png" width="22" height= "20"/>
+                                        <a style="padding-left:12px;" onclick='in_next_dir("{{filename.get("path")}}")'>
+                                            <font style="font-size:14px;font-family:黑体;color:#262626;">{{filename.get("path")}}</font>
+                                        </a>
+                                    </td>
+                                    <td  class="doc_size">
+                                        <font style="font-size:14px;font-family:黑体;color:#262626;">{{filename.get("size")}}</font>
+                                    </td>
+                                    <td  class="doc_time">
+                                        <font style="font-size:14px;font-family:黑体;color:#262626;">{{filename.get("modify")}}</font>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                  </div>
+            </div>
+        </div>
+    </body>
+</html>

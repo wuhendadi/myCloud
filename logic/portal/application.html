@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>PopoCloud</title>
+        <!-- ////////////////////////////////// -->
+        <!-- //      Stylesheets Files       // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="stylesheet" href="/portal/css/style.css" />
+          
+        <!-- ////////////////////////////////// -->
+        <!-- //     Google Webfont Files     // -->
+        <!-- ////////////////////////////////// -->
+        
+        
+        <!-- ////////////////////////////////// -->
+        <!-- //        Favicon Files         // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="shortcut icon" href="/portal/pic" />
+
+        <script src="/portal/js/jquery.min.js"></script>
+
+
+        <script  type="text/javascript">
+       function mydoc()
+        {
+            window.location.href="/documentpage";
+        }
+
+        function myapplication()
+        {
+            window.location.href="/application";
+        }
+
+        function setting()
+        {
+            window.location.href="/cloudset";
+        }
+
+        </script>
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body style="overflow:-Scroll;overflow-y:hidden">
+        <div id = "the_bar">
+            <a class= "ela_cloud"><img src="/portal/pic/yilai1.png"/></a>
+            <a class= "ela_exit" href="javascript:closeWindow();">
+                <font style="font-size:14px;font-family:黑体;color:#ffffff;">
+                        退出
+                </font>
+            </a>
+        </div>
+
+
+        <div id="main_doc">
+            <div id="left_bar">
+                <a onclick="mydoc()">
+                    <img style="padding-top:22px" src="/portal/pic/doc_one.png" onmouseover="src='/portal/pic/doc_second.png'" onmouseout="src ='/portal/pic/doc_one.png'"/>
+                </a>
+                <a onclick="myapplication()">
+                    <img style="padding-top:28px" src="/portal/pic/app_one.png" onmouseover="src='/portal/pic/app_second.png'" onmouseout="src ='/portal/pic/app_one.png'"/>
+                </a>
+                <a onclick="setting()">
+                    <img style="padding-top:28px" src="/portal/pic/cloudset_one.png" onmouseover="src='/portal/pic/cloudset_second.png'" onmouseout="src ='/portal/pic/cloudset_one.png'"/>
+                </a>
+            </div>
+
+
+            <div id="right_bar">
+                <div style="float:left; padding-left:42px;padding-top:24px;">
+                    <img src="/portal/pic/app_call.png" />
+
+                    <div style="padding-top:28px;">
+                            <font style="font-size:16px;font-family:黑体;color:#727272;">手机联系人备份</font>
+                    </div>
+
+                    <div style="padding-top:18px;">
+                            <a href="/calllist">
+                                <font style="font-size:14px;font-family:黑体;color:#0099e6;">查看备份表</font>
+                            </a>
+                        </div>
+
+                </div>
+
+                <div style="float:left; padding-left:212px;padding-top:24px;">
+                        <img src="/portal/pic/xunlei.png"/>
+                        <div style="padding-top:28px;">
+                            <font style="font-size:16px;font-family:黑体;color:#727272;">迅雷下载服务</font>
+                        </div>
+                        <div style="padding-top:18px;">
+                            <a href="/unbindthunder">
+                                <font style="font-size:14px;font-family:黑体;color:#0099e6;">点击去绑定迅雷服务</font>
+                            </a>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>PopoCloud</title>
+        <!-- ////////////////////////////////// -->
+        <!-- //      Stylesheets Files       // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="stylesheet" href="/portal/css/style.css" />
+          
+        <!-- ////////////////////////////////// -->
+        <!-- //     Google Webfont Files     // -->
+        <!-- ////////////////////////////////// -->
+        
+        
+        <!-- ////////////////////////////////// -->
+        <!-- //        Favicon Files         // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="shortcut icon" href="/portal/pic" />
+
+        <script src="/portal/js/jquery.min.js"></script>
+
+
+        <script  type="text/javascript">
+       function mydoc()
+        {
+            window.location.href="/documentpage";
+        }
+
+        function myapplication()
+        {
+            window.location.href="/application";
+        }
+
+        function setting()
+        {
+            window.location.href="/cloudset";
+        }
+
+        </script>
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body style="overflow:-Scroll;overflow-y:hidden">
+    <div id = "the_bar">
+            <a class= "ela_cloud"><img src="/portal/pic/yilai1.png"/></a>
+            <a class= "ela_exit" href="javascript:closeWindow();">
+                <font style="font-size:14px;font-family:黑体;color:#ffffff;">
+                        退出
+                </font>
+            </a>
+    </div>
+
+    <div id="main_doc">
+            <div id="left_bar">
+                <a onclick="mydoc()">
+                    <img style="padding-top:22px" src="/portal/pic/doc_one.png" onmouseover="src='/portal/pic/doc_second.png'" onmouseout="src ='/portal/pic/doc_one.png'"/>
+                </a>
+                <a onclick="myapplication()">
+                    <img style="padding-top:28px" src="/portal/pic/app_one.png" onmouseover="src='/portal/pic/app_second.png'" onmouseout="src ='/portal/pic/app_one.png'"/>
+                </a>
+                <a onclick="setting()">
+                    <img style="padding-top:28px" src="/portal/pic/cloudset_one.png" onmouseover="src='/portal/pic/cloudset_second.png'" onmouseout="src ='/portal/pic/cloudset_one.png'"/>
+                </a>
+            </div>
+
+            <div id="right_bar">
+
+                <div>
+                    <div style="float:left;padding-top:22px;padding-left:27px;">
+                            <fieldset style="width:782px;height:116px;border-width:1px;">
+                                <legend style="font-size:16px;font-family:黑体;color:#000000;">亦来云盘信息</legend>
+
+                                <div style="padding-top:18px;clear:both; float:left;padding-left:15px;">
+                                    <font style="font-size:12px;font-family:宋体;color:#000000;">云盘序列号: 3456789</font>
+                                </div>
+
+                                <div style="padding-top:18px;clear:both; float:left;padding-left:15px;">
+                                <font style="font-size:12px;font-family:宋体;color:#000000;">
+                                    已绑定个人账号
+                                <a href="/unbindaccount"><font style="font-size:12px;color:#0099e6;">点击解除绑定</font></a>
+                                    解除绑定后,只能在局域网内访问云盘
+                                </font>
+                            </div>
+                            </fieldset>
+                    </div>
+
+                    <!--
+                    <div style="float:left;padding-top:32px;padding-left:27px;">
+                            <fieldset style="width:782px;height:157px;border-width:1px;">
+                                <legend style="font-size:14px;font-family:宋体;color:#000000;">亦来云相关服务</legend>
+
+                            <div style="float:left;padding-left:15px; padding-top:20px;">
+                                {% if check_surf %}
+                                <input type="checkbox" checked=True onclick="overwall(this);"/>
+                                {% else %}
+                                <input type="checkbox" onclick="overwall(this);"/>
+                                {% endif %}
+                                <font style="font-size:14px;font-family:宋体;color:#000000;">OpenVpn(整机翻墙服务)</font>
+                                <a><font style="font-size:14px;color:#0099e6;">分享给朋友</font></a>
+                            </div>
+
+                            <div style="clear:both;padding-left:15px; padding-top:20px;float:left;">
+                                {% if check %}
+                                    <input type="checkbox" checked=True onclick="operatesocket(this);"/>
+                                {% else %}
+                                    <input type="checkbox"  onclick="operatesocket(this);"/>
+                                {% endif %}
+                                    <font style="font-size:16px;font-family:宋体;color:#000000;">Shadowsocket(单应用翻墙服务)</font>
+                                    <a><font style="font-size:14px;color:#0099e6;">分享给朋友</font></a>
+                            </div>
+
+
+                            <div style="padding-top:10px;float:left;"> 
+                                <ul style="list-style-type:none">
+                                    <li style="float:left;">
+                                        <font style="font-size:14px;font-family:宋体;color:#000016;">开启外网访问</font>
+                                    </li>
+                                    <li style="float:left;margin-top:-10px;">
+                                        {% if net_open=='true' %}
+                                        <a href="javascript:void(0)" onclick="netopen('false');">
+                                            <img src="/portal/pic/shut_open.png" onmouseover="src='/portal/pic/shut_openover.png'" onmouseout="src='/portal/pic/shut_open.png'"/>
+                                        </a>
+                                        {% else %}
+                                        <a href="javascript:void(0)" onclick="netopen('true');">
+                                            <img src="/portal/pic/shut_openover.png" onmouseover="src='/portal/pic/shut_open.png'" onmouseout="src='/portal/pic/shut_openover.png'"/>
+                                        </a>
+                                        {% endif %}
+                                    </li>
+                                    <li style="float:left;">
+                                        <font style="font-size:14px;font-family:宋体;color:#000014;">(开启外网访问后去www.paopaoyun.com,可以在任意地点访问您的泡泡云)</font>
+                                    </li>
+                                </ul>
+                            </div>
+                            </fieldset>
+                    </div>
+                        -->
+
+                    <div style="float:left;padding-top:22px;padding-left:27px;">
+                            <fieldset style="width:782px;height:116px;border-width:1px;">
+                                <legend style="font-size:14px;font-family:宋体;color:#000000;">亦来云账户信息</legend>
+                                <div style="clear:both;float:left;padding-left:15px;margin-top:18px;">
+                                    <font style="font-size:14px;font-family:黑体;color:#000014;">登陆账户名</font>
+                                </div>
+
+                                <div style="clear:both;float:left;padding-left:15px;margin-top:18px;">
+                                    <font style="font-size:14px;font-family:黑体;color:#0099e6;">云盘系统版本:{{version}}</font>
+                                    <font style="font-size:12px;font-family:黑体;color:#ff0000;">已有版本</font>
+                                </div>
+                            </fieldset>
+                    </div>
+
+                </div>
+        
+            </div>
+    </div>
+
+    </body>
+</html>

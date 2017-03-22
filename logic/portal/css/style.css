@@ -1,0 +1,172 @@
+#the_bar {
+    margin:0 auto;
+    width:1280px;
+    height:46;
+    background: #0088f4;
+}
+
+.ela_cloud{
+    padding-left:33px;
+    padding-top:10px;
+    float:left;
+}
+
+.ela_exit {
+    padding-left:1000px;
+    padding-top:16px;
+    float:left;
+}
+
+#main_doc{
+    margin:0 auto;
+    width:1280px;
+    height:754px;
+    background: #fefefe;
+}
+
+#left_bar{
+    margin:0 auto;
+    width:198px;
+    /*height:754px;*/
+    height:954px;
+    background-image:url(/portal/pic/left.png);
+    /*background: #f7f7f7;*/
+    float:left;
+}
+
+#right_bar{
+    margin:0 auto;
+    width:1082px;
+    height:754px;
+    background: #fefefe;
+    float:left;
+}
+
+#disk_list{
+    margin:0 auto;
+    width:1082px;
+    height:74px;
+    background: #f7f7f7;
+}
+
+.disk_icon{
+    width:120px;
+    height:74px;
+    float:left;
+}
+
+#operate_list{
+    margin:0 auto;
+    background-image:url(/portal/pic/des_frame.png);
+    height:55px;
+}
+
+.back{
+    margin:0 auto;
+    margin-left:28px;
+    margin-top:12px;
+    float:left;
+}
+
+.creat_new_folder{
+    margin:0 auto;
+    margin-left:14px;
+    margin-top:12px;
+    float:left;
+}
+
+.upload_doc{
+    margin:0 auto;
+    margin-left:14px;
+    margin-top:12px;
+    height:30px;
+    float:left;
+}
+
+.download_doc{
+    margin:0 auto;
+    margin-left:14px;
+    margin-top:12px;
+    float:left;
+}
+
+.rename{
+    margin:0 auto;
+    margin-left:14px;
+    margin-top:12px;
+    float:left;
+}
+
+.del_doc{
+    margin:0 auto;
+    margin-left:14px;
+    margin-top:12px;
+    float:left;
+}
+
+#descript_operate{
+    clear:both;
+    height:55px;
+}
+
+#descript_first{
+    padding-left:40px;
+    margin-top:17px;
+    float:left;
+}
+
+#descript_second{
+    padding-left:822;
+    margin-top:17px;
+    float:left;
+}
+
+#descript_doc{
+    margin:0 auto;
+    padding-top:60px;
+    background: #f2f2f2;
+    width:1082px;
+}
+
+#myform{
+}
+
+.doc_name{
+    text-align:left;
+    width:300px;
+}
+
+.doc_size{
+    text-align:left;
+    padding-left:475px;
+}
+
+.doc_time{
+    text-align:left;
+}
+
+#tbody_t{
+    overflow:scroll;
+    width:100%;
+    height:30px;
+}
+
+#t_head{
+    background: #f2f2f2;
+}
+
+#table_name{
+    /*height:570px; */
+    height:770px;
+    overflow:scroll;
+}
+
+
+#yilai_info{
+    height:121px;
+    width:794px;
+    text-align:center;
+    margin-left:11px;
+}
+
+

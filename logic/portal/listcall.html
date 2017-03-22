@@ -1,0 +1,196 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>PopoCloud</title>
+        <!-- ////////////////////////////////// -->
+        <!-- //      Stylesheets Files       // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="stylesheet" href="/portal/css/style.css" />
+          
+        <!-- ////////////////////////////////// -->
+        <!-- //     Google Webfont Files     // -->
+        <!-- ////////////////////////////////// -->
+        
+        
+        <!-- ////////////////////////////////// -->
+        <!-- //        Favicon Files         // -->
+        <!-- ////////////////////////////////// -->
+        <link rel="shortcut icon" href="/portal/pic" />
+
+        <script src="/portal/js/jquery.min.js"></script>
+
+
+        <script  type="text/javascript">
+       function mydoc()
+        {
+            window.location.href="/documentpage";
+        }
+
+        function myapplication()
+        {
+            window.location.href="/application";
+        }
+
+        function setting()
+        {
+            window.location.href="/cloudset";
+        }
+
+        function goback()
+        {
+            window.location.href="/application";
+        }
+    
+        function delphone()
+        {
+            alert("delphone");
+            console.log("delphone successe");
+            var checks = $("input:checked");
+        }
+
+        function phone_up_page(cur_page_num)
+        {
+            num_page = cur_page_num - 1;
+            if(num_page < 0)
+            {
+                num_page = 0;
+            }
+            window.location.href="/calllist?page_num="+num_page.toString();
+        }
+
+        function phone_next_page(cur_page_num)
+        {
+            num_page = cur_page_num + 1;
+            max_page = {{max_page}}-1;
+            if(num_page > max_page)
+                {
+                    num_page = max_page;
+                }
+            window.location.href="/calllist?page_num="+num_page.toString();
+        }
+
+        function selectallcheckbox(checkbox) {  
+             if($(checkbox).attr('checked'))
+             {
+             $('input[type=checkbox]').attr('checked', true);  
+             }
+             else
+             {
+             $('input[type=checkbox]').attr('checked', false);  
+             }
+                 }  
+        window.onload = function() {
+
+            var btn1 = document.getElementById('document');
+            var btn2 = document.getElementById('application');
+            var btn3 = document.getElementById('settings');
+
+            btn1.onmouseover = function() {
+                this.style.backgroundColor = '#818181';
+            }
+            btn1.onmouseout = function() {
+                this.style.backgroundColor = '';
+            }
+
+            btn2.onmouseover = function() {
+                this.style.backgroundColor = '#818181';
+            }
+            btn2.onmouseout = function() {
+                this.style.backgroundColor = '';
+            }
+
+            btn3.onmouseover = function() {
+                this.style.backgroundColor = '#818181';
+            }
+            btn3.onmouseout = function() {
+                this.style.backgroundColor = '';
+            }
+        }
+
+        </script>
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body style="overflow:-Scroll;overflow-y:hidden">
+    <div id = "the_bar">
+            <a class= "ela_cloud"><img src="/portal/pic/yilai1.png"/></a>
+            <a class= "ela_exit" href="javascript:closeWindow();">
+                <font style="font-size:14px;font-family:黑体;color:#ffffff;">
+                        退出
+                </font>
+            </a>
+    </div>
+
+    <div id="main_doc">
+            <div id="left_bar">
+                <a onclick="mydoc()">
+                    <img style="padding-top:22px" src="/portal/pic/doc_one.png" onmouseover="src='/portal/pic/doc_second.png'" onmouseout="src ='/portal/pic/doc_one.png'"/>
+                </a>
+                <a onclick="myapplication()">
+                    <img style="padding-top:28px" src="/portal/pic/app_one.png" onmouseover="src='/portal/pic/app_second.png'" onmouseout="src ='/portal/pic/app_one.png'"/>
+                </a>
+                <a onclick="setting()">
+                    <img style="padding-top:28px" src="/portal/pic/cloudset_one.png" onmouseover="src='/portal/pic/cloudset_second.png'" onmouseout="src ='/portal/pic/cloudset_one.png'"/>
+                </a>
+            </div>
+
+            <div id="right_bar">
+                <a style="float:left;padding-left:26px;padding-top:30px;" href="javascript:goback();">
+                    <img src="/portal/pic/phone_back.png" onmouseover="src ='/portal/pic/backover.png'" onmouseout="src ='/portal/pic/phone_back.png'"/>
+                </a>
+
+                <a style="float:left;padding-left:20px;padding-top:30px;" href="javascript:delphone();">
+                    <img src="/portal/pic/phone_d.png" onmouseover="src='/portal/pic/phone_del.png'" onmouseout="src ='/portal/pic/phone_d.png'"/>
+                </a>
+
+                <div style="padding-top:75px;padding-left:20px;">
+                    <table frame="hsides" rules="rows" width="1026px">
+                        <tbody>
+                            <tr style="height:41px;">
+                                    <td style="border-spacing:0px;">
+                                        <input type="checkbox" style="margin-left:26px;" onclick="selectallcheckbox(this);"/>
+                                    </td>
+                                    <td class="phone_name">
+                                        <font  style="font-size:14px;font-family:黑体;color:#727272;">姓名</font>
+                                    </td>
+                                    <td class="phone_num">
+                                        <font style="font-size:14px;font-family:黑体;color:#727272;padding-left:200px;">电话号码</font>
+                                     </td>
+                                 </tr>
+                            {% for ele in ret %}
+                            <tr style="height:40px;">
+                                <td style="border-spacing:0px;">
+                                    <input type="checkbox" style="margin-left:26px;" />
+                                </td>
+                                <td >
+                                    <img src="/portal/pic/phone.png" width="22" height= "20"/  >
+                                    <font style="font-size:14px;font-family:黑体;color:#262626;">{{ele.get("FN")}}</font>
+                                </td>
+                                <td>
+                                    {% if ele.get('TEL') %}
+                                    <font style="font-size:14px;font-family:黑体;color:#262626;padding-left:200px;">{{ele.get('TEL')[0].get('CELL',"").replace('-','')}}</font>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                    <div style="position:relative;left:450px;top:20px;">
+                        <button type="button" onclick="phone_up_page({{cur_page_num}})">上一页</button>
+                            {% for x in max_num %}
+                                <a href="/calllist?page_num={{x}}">{{x+1}}</a>
+                            {% endfor %}
+                        <button type="button" onclick="phone_next_page({{cur_page_num}})">下一页</button>
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+    </body>
+</html>
